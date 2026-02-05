@@ -9,10 +9,11 @@ interface Props {
 }
 
 export default function Container({ children, className }: Props) {
+  //bg-green-500
   return (
     <SafeAreaView
       style={[
-        tw`flex-1 px-2 bg-green-500`,
+        tw`flex-1 px-2 `,
         Platform.OS === 'android' ? tw`mt-10` : null,
         className ? tw`${className}` : null,
       ]}
