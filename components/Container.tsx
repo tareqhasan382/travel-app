@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, View } from 'react-native';
+import { Platform, StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import tw from 'twrnc';
 
@@ -18,6 +18,7 @@ export default function Container({ children, className }: Props) {
         className ? tw`${className}` : null,
       ]}
     >
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
       <View style={tw`flex-1`}>
         {children}
       </View>
