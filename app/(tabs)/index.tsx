@@ -31,7 +31,7 @@ export default function HomeScreen() {
     'Cruises',
   ];
 
- const allDestinations = [
+  const allDestinations = [
     {
       id: '1',
       name: 'Maldives',
@@ -139,160 +139,160 @@ export default function HomeScreen() {
       </View>
 
       {/* ================= Main Scroll ================= */}
-    <View style={{height:"70%"}}>
+      <View style={{ height: "70%" }}>
         <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={tw`pb-24 px-4`}
-      >
-        {/* ================= Categories ================= */}
-        <View>
-          <Text style={tw`text-lg font-bold mb-3 text-gray-900`}>
-            Categories
-          </Text>
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={tw`pb-24 px-4`}
+        >
+          {/* ================= Categories ================= */}
+          <View>
+            <Text style={tw`text-lg font-bold mb-3 text-gray-900`}>
+              Categories
+            </Text>
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {categories.map((item, index) => {
-              const active = item === activeCategory;
-              return (
-                <Pressable
-                  key={index}
-                  onPress={() => setActiveCategory(item)}
-                  style={tw`
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {categories.map((item, index) => {
+                const active = item === activeCategory;
+                return (
+                  <Pressable
+                    key={index}
+                    onPress={() => setActiveCategory(item)}
+                    style={tw`
                     px-5 py-3 mr-3 rounded-full shadow-sm
                     ${active ? 'bg-blue-600' : 'bg-white'}
                   `}
-                >
-                  <Text
-                    style={tw`
+                  >
+                    <Text
+                      style={tw`
                       font-medium
                       ${active ? 'text-white' : 'text-gray-700'}
                     `}
-                  >
-                    {item}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </ScrollView>
-        </View>
-
-        {/* ================= Popular Destinations ================= */}
-        <View style={tw`mt-8`}>
-          <View style={tw`flex-row items-center justify-between mb-3`}>
-            <Text style={tw`text-lg font-bold text-gray-900`}>
-              Popular Destinations
-            </Text>
-            <Text style={tw`text-blue-600 font-medium`}>View all</Text>
+                    >
+                      {item}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
           </View>
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {filteredDestinations.length > 0 ? (
-              filteredDestinations.map((dest, index) => (
-                <Pressable
-                  key={dest.id}
+          {/* ================= Popular Destinations ================= */}
+          <View style={tw`mt-8`}>
+            <View style={tw`flex-row items-center justify-between mb-3`}>
+              <Text style={tw`text-lg font-bold text-gray-900`}>
+                Popular Destinations
+              </Text>
+              <Text style={tw`text-blue-600 font-medium`}>View all</Text>
+            </View>
+
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {filteredDestinations.length > 0 ? (
+                filteredDestinations.map((dest, index) => (
+                  <Pressable
+                    key={dest.id}
                     onPress={() =>
-    router.push({
-      pathname: '/(tabs)/listing/[id]',
-      params: { id: dest.id },
-    })
-  }
-                  style={[
-                    tw`bg-white mr-4 rounded-3xl shadow-md overflow-hidden`,
-                    { width: SCREEN_WIDTH * 0.6 },
-                  ]}
-                >
-                  <View style={tw`relative`}>
-                    <Image
-                      source={{ uri: dest.image }}
-                      style={tw`w-full h-44`}
-                      resizeMode="cover"
-                    />
-                    <Pressable
-                      style={tw`absolute top-3 right-3 bg-white/90 p-2 rounded-full`}
-                    >
-                      <Ionicons
-                        name="bookmark-outline"
-                        size={20}
-                        color="#333"
+                      router.push({
+                        pathname: '/(tabs)/listing/[id]',
+                        params: { id: dest.id },
+                      })
+                    }
+                    style={[
+                      tw`bg-white mr-4 rounded-3xl shadow-md overflow-hidden`,
+                      { width: SCREEN_WIDTH * 0.6 },
+                    ]}
+                  >
+                    <View style={tw`relative`}>
+                      <Image
+                        source={{ uri: dest.image }}
+                        style={tw`w-full h-44`}
+                        resizeMode="cover"
                       />
-                    </Pressable>
-                  </View>
-
-                  <View style={tw`p-4`}>
-                    <Text style={tw`text-base font-semibold mb-1`}>
-                      {dest.name}
-                    </Text>
-
-                    <View style={tw`flex-row items-center mb-2`}>
-                      <Ionicons
-                        name="location-outline"
-                        size={14}
-                        color="#777"
-                      />
-                      <Text style={tw`ml-1 text-gray-500 text-sm`}>
-                        {dest.location}
-                      </Text>
+                      <Pressable
+                        style={tw`absolute top-3 right-3 bg-white/90 p-2 rounded-full`}
+                      >
+                        <Ionicons
+                          name="bookmark-outline"
+                          size={20}
+                          color="#333"
+                        />
+                      </Pressable>
                     </View>
 
-                    <View style={tw`flex-row items-center justify-between`}>
-                      <Text style={tw`text-blue-600 font-semibold`}>
-                        ${dest.price} / trip
+                    <View style={tw`p-4`}>
+                      <Text style={tw`text-base font-semibold mb-1`}>
+                        {dest.name}
                       </Text>
-                      <View style={tw`flex-row items-center`}>
-                        <Ionicons name="star" size={14} color="#FACC15" />
-                        <Text style={tw`ml-1 font-medium`}>{dest.rating}</Text>
+
+                      <View style={tw`flex-row items-center mb-2`}>
+                        <Ionicons
+                          name="location-outline"
+                          size={14}
+                          color="#777"
+                        />
+                        <Text style={tw`ml-1 text-gray-500 text-sm`}>
+                          {dest.location}
+                        </Text>
+                      </View>
+
+                      <View style={tw`flex-row items-center justify-between`}>
+                        <Text style={tw`text-blue-600 font-semibold`}>
+                          ${dest.price} / trip
+                        </Text>
+                        <View style={tw`flex-row items-center`}>
+                          <Ionicons name="star" size={14} color="#FACC15" />
+                          <Text style={tw`ml-1 font-medium`}>{dest.rating}</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
-                </Pressable>
-              ))
-            ) : (
-              <Text style={tw`text-gray-500 ml-4 mt-2`}>
-                No destinations found.
-              </Text>
-            )}
-          </ScrollView>
-        </View>
-
-        {/* ================= Top Travel Groups ================= */}
-        <View style={tw`mt-10`}>
-          <View style={tw`flex-row items-center justify-between mb-3`}>
-            <Text style={tw`text-lg font-bold text-gray-900`}>
-              Top Travel Groups
-            </Text>
-            <Text style={tw`text-blue-600 font-medium`}>View all</Text>
+                  </Pressable>
+                ))
+              ) : (
+                <Text style={tw`text-gray-500 ml-4 mt-2`}>
+                  No destinations found.
+                </Text>
+              )}
+            </ScrollView>
           </View>
 
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {topTravelGroups.map((group, index) => (
-              <View
-                key={index}
-                style={[
-                  tw`bg-white mr-4 rounded-3xl shadow-md overflow-hidden`,
-                  { width: SCREEN_WIDTH * 0.55 },
-                ]}
-              >
-                <Image
-                  source={{ uri: group.image }}
-                  style={tw`w-full h-36`}
-                  resizeMode="cover"
-                />
-                <View style={tw`p-4`}>
-                  <Text style={tw`text-base font-semibold mb-2`}>
-                    {group.name}
-                  </Text>
-                  <View style={tw`flex-row items-center`}>
-                    <Ionicons name="star" size={16} color="#FACC15" />
-                    <Text style={tw`ml-1 font-medium`}>{group.rating}</Text>
-                    <Text style={tw`text-gray-500 ml-1`}>({group.reviews})</Text>
+          {/* ================= Top Travel Groups ================= */}
+          <View style={tw`mt-10`}>
+            <View style={tw`flex-row items-center justify-between mb-3`}>
+              <Text style={tw`text-lg font-bold text-gray-900`}>
+                Top Travel Groups
+              </Text>
+              <Text style={tw`text-blue-600 font-medium`}>View all</Text>
+            </View>
+
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {topTravelGroups.map((group, index) => (
+                <View
+                  key={index}
+                  style={[
+                    tw`bg-white mr-4 rounded-3xl shadow-md overflow-hidden`,
+                    { width: SCREEN_WIDTH * 0.55 },
+                  ]}
+                >
+                  <Image
+                    source={{ uri: group.image }}
+                    style={tw`w-full h-36`}
+                    resizeMode="cover"
+                  />
+                  <View style={tw`p-4`}>
+                    <Text style={tw`text-base font-semibold mb-2`}>
+                      {group.name}
+                    </Text>
+                    <View style={tw`flex-row items-center`}>
+                      <Ionicons name="star" size={16} color="#FACC15" />
+                      <Text style={tw`ml-1 font-medium`}>{group.rating}</Text>
+                      <Text style={tw`text-gray-500 ml-1`}>({group.reviews})</Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            ))}
-          </ScrollView>
-        </View>
-      </ScrollView>
-    </View>
+              ))}
+            </ScrollView>
+          </View>
+        </ScrollView>
+      </View>
 
       {/* ================= Filter Modal ================= */}
       <FilterModal
