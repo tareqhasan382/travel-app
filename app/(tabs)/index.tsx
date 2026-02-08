@@ -192,7 +192,7 @@ export default function HomeScreen() {
                     key={dest.id}
                     onPress={() =>
                       router.push({
-                        pathname: '/(tabs)/listing/[id]',
+                        pathname: '/listing/[id]',
                         params: { id: dest.id },
                       })
                     }
