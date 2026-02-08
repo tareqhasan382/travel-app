@@ -118,7 +118,7 @@ export default function HomeScreen() {
       {/* ================= Search & Filter ================= */}
       <View style={tw`flex-row items-center mb-6`}>
         <View
-          style={tw`flex-row items-center bg-white flex-1 px-4 py-2 rounded-2xl shadow-sm`}
+          style={tw`flex-row items-center bg-white flex-1 px-2 py-1 rounded-2xl shadow-sm`}
         >
           <Ionicons name="search-outline" size={20} color="#999" />
           <TextInput
@@ -142,7 +142,7 @@ export default function HomeScreen() {
       <View style={{ height: "70%" }}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={tw`pb-24 px-4`}
+          contentContainerStyle={tw`pb-24 px-1`}
         >
           {/* ================= Categories ================= */}
           <View>
