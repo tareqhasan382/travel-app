@@ -1,6 +1,7 @@
 import Container from '@/components/Container';
 import FilterModal from '@/components/FilterModal';
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import {
   Dimensions,
@@ -30,33 +31,39 @@ export default function HomeScreen() {
     'Cruises',
   ];
 
-  const allDestinations = [
+ const allDestinations = [
     {
+      id: '1',
       name: 'Maldives',
       location: 'Indian Ocean',
       price: 1200,
       rating: 4.9,
       type: 'Beaches',
       image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+      description: 'Crystal clear water, white sandy beaches, and luxury resorts.',
     },
     {
+      id: '2',
       name: 'Paris',
       location: 'France',
       price: 1500,
       rating: 4.8,
       type: 'Cities',
       image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee',
+      description: 'The city of love, art, fashion, and iconic landmarks.',
     },
     {
+      id: '3',
       name: 'Bali',
       location: 'Indonesia',
       price: 900,
       rating: 4.7,
       type: 'Beaches',
       image: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff',
+      description: 'Tropical paradise with temples, beaches, and culture.',
     },
-    // Add more destinations here
   ];
+
 
   const filteredDestinations = allDestinations.filter(
     (dest) =>
@@ -181,8 +188,14 @@ export default function HomeScreen() {
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {filteredDestinations.length > 0 ? (
               filteredDestinations.map((dest, index) => (
-                <View
-                  key={index}
+                <Pressable
+                  key={dest.id}
+                    onPress={() =>
+    router.push({
+      pathname: '/(tabs)/listing/[id]',
+      params: { id: dest.id },
+    })
+  }
                   style={[
                     tw`bg-white mr-4 rounded-3xl shadow-md overflow-hidden`,
                     { width: SCREEN_WIDTH * 0.6 },
@@ -231,7 +244,7 @@ export default function HomeScreen() {
                       </View>
                     </View>
                   </View>
-                </View>
+                </Pressable>
               ))
             ) : (
               <Text style={tw`text-gray-500 ml-4 mt-2`}>
