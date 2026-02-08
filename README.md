@@ -2,7 +2,7 @@
 
 A beautiful and feature-rich travel exploration mobile application built with React Native. Discover destinations, explore categories, save bookmarks, and manage your travel plans all in one place.
 
-![App Preview](React_Native_Mobile_App.png)
+![App Preview](https://github.com/tareqhasan382/travel-app/blob/70d47d3fb7fcfa45d38827ba5716be49a726469d/React%20Native%20Mobile%20App.png)
 
 ## 📱 Features
 
